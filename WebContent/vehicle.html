@@ -1,0 +1,64 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://gist.github.com/moalex/5559663/raw/x2js.js" type="text/javascript" language="javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="vehicle.js"></script>
+  </head>
+  <body ng-controller="myCtrl">  	  
+ 	  	<form name="frm">
+ 	      <div>
+ 	      <h1>Vehicle Management System</h1>
+              Id:<br>
+			  <input id="Id" type="text" ng-model="Id" name="Id" value="" required>
+			  <span ng-show="frm.Id.$dirty && frm.Id.$error.required">Required</span> 
+			  <br>
+			  <br>
+			  Year:<br>
+			  <input id="Year" type="number" ng-model="Year" name="Year" min="1950" max="2050" required>
+			  <span ng-show="frm.Year.$dirty && frm.Year.$error.max">Enter in range of 1950 and 2050</span>
+			  <span ng-show="frm.Year.$dirty && frm.Year.$error.min">Enter in range of 1950 and 2050</span>
+			  <br>
+			  <br>
+			  <span ng-show="frm.Year.$dirty && frm.Year.$error.required">Required</span>
+			  Make:<br>
+			  <input id="Make" type="text" ng-model="Make" name="Make" required>	 
+			  <span ng-show="frm.Make.$dirty && frm.Make.$error.required">Required</span> 
+			  <br>
+			  <br>
+			  Model:<br>
+			  <input id="Model" type="text" ng-model="Model" name="Model" required>
+			  <span ng-show="frm.Model.$dirty && frm.Model.$error.required">Required</span>	  
+			  <br>
+			  <br>
+				
+              <button ng-disabled="frm.$invalid" ng-click="insert()">Create</button>
+              <button ng-click="retrieve()">Read</button>
+              <button ng-click="update()">Update</button>
+              <button ng-click="deletes()">Delete</button>
+              <button ng-click="retrieveAll()">Read All</button>
+              <button ng-click="retrieveByProperties()">Search By Make </button>  
+                                   
+         </div>
+        </form> 
+      
+    <div>
+    <table id="table" border="1" style="width:100%">
+      <tr>
+        <th>Id</th>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+      <tr ng-repeat="car in cars" >
+        <td>{{car.Id}}</td>
+        <td>{{car.Year}}</td>
+        <td>{{car.Make}}</td>
+        <td>{{car.Model}}</td>
+      </tr>
+    </table>
+         
+    </div>
+  </body>
+</html>
