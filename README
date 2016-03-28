@@ -1,0 +1,5 @@
+The uploaded files on GitHub can be used to create a local project (Dynamic Web project) in Eclipse.
+This project includes "vehicle.html" as the front-end and "vechicle.js" (AngularJS) for processing the data on client side.
+RESTful Web services are written in Java in "Service.java". Apart from these files there is also a "Car.java" file which is used as an entity.
+Lib folder contains all the necessary libraries that are needed to execute the project. web.xml and other necessary files also needs to be
+configured. 
